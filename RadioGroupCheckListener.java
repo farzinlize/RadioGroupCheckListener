@@ -58,4 +58,17 @@ public class RadioGroupCheckListener implements CompoundButton.OnCheckedChangeLi
         }
     }
 
+    /**
+     * static function to create a RadioGroup with buttons ids
+     * if a button turn to checked state all other buttons is group turn unchecked
+     * @param activity activity that contain this group too find views by their ids
+     * @param buttonIDs the buttons ids that we want to act like RadioGroup
+     */
+    public static void makeGroup(Activity activity, int... buttonIDs){
+        CompoundButton[] buttons = new CompoundButton[buttonIDs.length];
+        for(int i=0;i<buttonIDs.length;i++)
+            buttons[i] = (CompoundButton) activity.findViewById(buttonIDs[i]);
+        makeGroup(buttons);
+    }
+
 }
